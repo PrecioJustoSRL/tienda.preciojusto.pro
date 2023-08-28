@@ -86,7 +86,7 @@ function Home({ children }) {
     readUserData('Producto', 'Precio-Justo-SRL-Data', setUserDistributorPDB, 'distribuidor')
 
     readUserAllData('Producto', productDB, setUserProduct)
-    readUserAllData('Receta', recetaDBP, setRecetaDBP)
+    // readUserAllData('Receta', recetaDBP, setRecetaDBP)
   }, [user]);
 
 

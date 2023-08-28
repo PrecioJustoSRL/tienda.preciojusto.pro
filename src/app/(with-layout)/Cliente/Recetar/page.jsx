@@ -47,12 +47,17 @@ function Comprar({ theme, styled, click, children }) {
     e.preventDefault()
     const dataURL = recetaDB.paciente.replaceAll(' ', '') + user.uuid
     handlerQRUrl(dataURL)
-    Object.values(cart).map((i) => {
-      const data = { ...i }
-      delete data['created_at']
-      delete data['id']
-      writeUserData('Receta', { ...data, ...recetaDB, medico: user.uuid, qr: dataURL }, i.uuid, userDB, setUserData, setUserSuccess, 'existos', null)
-    })
+    // const arr = Object.values(cart).map((i) => {
+    //   const data = { ...i }
+    //   delete data['created_at']
+    //   delete data['id']
+    //   return data
+    // })
+
+// console.log(recetaDB)
+    // writeUserData('Receta', { ...data, ...recetaDB, medico: user.uuid, qr: dataURL }, i.uuid, userDB, setUserData, setUserSuccess, 'existos', null)
+    // writeUserData('Receta', {  ...recetaDB, medico: user.uuid, qr: dataURL, receta: arr}, dataURL, userDB, setUserData, setUserSuccess, 'existos', null)
+
   }
   function generarPDF(e) {
     e.preventDefault()
@@ -66,7 +71,27 @@ function Comprar({ theme, styled, click, children }) {
     setModal('Finish')
   }
 
-  function finishConfirm() {
+  async function finishConfirm(e) {
+
+
+    e.preventDefault()
+  
+    const arr = Object.values(cart).map((i) => {
+      const data = { ...i }
+      delete data['created_at']
+      delete data['id']
+      return data
+    })
+
+// console.log(recetaDB)
+    // writeUserData('Receta', { ...data, ...recetaDB, medico: user.uuid, qr: dataURL }, i.uuid, userDB, setUserData, setUserSuccess, 'existos', null)
+   await writeUserData('Receta', {  ...recetaDB, medico: user.uuid, qr, receta: arr}, qr, userDB, setUserData, setUserSuccess, 'existos', null)
+
+
+
+
+
+setQr(null)
     setUserCart({})
     setModal('')
     router.push('/Cliente')

@@ -50,10 +50,6 @@ function Comprar({ theme, styled, click, children }) {
       setUserSuccess('Complete')
     }
 
-
-
-
-
     // Object.values(cart).map((i) => {
     //   const data = { ...i }
     //   delete data['created_at']
@@ -65,6 +61,8 @@ function Comprar({ theme, styled, click, children }) {
 
     // window.navigator.vibrate([1000])
   }
+
+  console.log(user)
   function handlerCheck(data) {
     setCheck(data)
     setState({ ...state, check: data })

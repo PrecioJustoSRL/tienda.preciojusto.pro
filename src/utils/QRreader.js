@@ -1,10 +1,14 @@
 import qrcodeParser from "qrcode-parser";
 
-function QRreaderUtils(e, setFilterQR) {
+async function QRreaderUtils(e, setFilterQR, setFilter, readUserData, setRecetaDBP) {
 
- qrcodeParser(e.target.files[0]).then((res) => {
-       setFilterQR(res);
-    });
+    const res = await qrcodeParser(e.target.files[0])
+    setFilterQR(res);
+    const data = await readUserData('Receta', res, setRecetaDBP, 'qr')
+    console.log(data)
+    // .then((res) => {
+
+    //     });
 
 }
 
