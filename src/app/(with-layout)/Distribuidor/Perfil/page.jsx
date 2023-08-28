@@ -39,7 +39,7 @@ function Home() {
                     <br />
                     <Subtitle>Quienes Somos</Subtitle>
                     <Paragraph> {userDB[0]['descripcion']}</Paragraph>
-                    <div>
+                    {/* <div>
                         <Subtitle>Dias de atención</Subtitle>
                         <div className="flex justify-between">
                             <input type="checkbox" id="L" name="L" checked={JSON.parse(userDB[0]['dias de atencion'])['L'] ? true : false} readOnly />
@@ -59,7 +59,7 @@ function Home() {
                         </div>
                     </div>
                     <Subtitle>Horarios De Atención</Subtitle>
-                    <p className=''>{userDB[0]['horarios de apertura']} - {userDB[0]['horarios de cierre']}</p>
+                    <p className=''>{userDB[0]['horarios de apertura']} - {userDB[0]['horarios de cierre']}</p> */}
                     <Subtitle>Categorias</Subtitle>
                     <Subtitle>Contactos</Subtitle>
                     <div className=''>
