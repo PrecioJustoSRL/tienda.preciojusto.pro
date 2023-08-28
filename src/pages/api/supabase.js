@@ -7,6 +7,21 @@ const anon_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsI
 
 const supabase = createClient(supabase_url, anon_key)
 
+const updateUserData = async (rute, object, uuid, eq) => {
+    const result = await supabase
+        .from(rute)
+        .update(object)
+        .eq(eq ? eq : 'uuid', uuid)
+    // if (result.data !== null && result.data.length !== 0) {
+    //     console.log('act')
+    //     key ? updateContext({ ...context, [key]: result.data[0] }) : updateContext(arr == true ? result.data : result.data[0])
+    // } 
+    console.log(result)
+}
+
+
+
+
 const writeUserData = async (rute, object) => {
     console.log(object)
 
@@ -20,4 +35,4 @@ const writeUserData = async (rute, object) => {
     return result
 }
 
-module.exports = { writeUserData };
+module.exports = { writeUserData, updateUserData};

@@ -64,7 +64,7 @@ const writeUserData = async (rute, object, uuid, context, updateContext, setUser
         .insert(object)
     console.log(result)
     setUserSuccess ? setUserSuccess(msg) : ''
-    result.status == 201 ? readUserData(rute, uuid, updateContext) : (setUserSuccess ? setUserSuccess(msg) : '')
+    result.status == 201 && updateContext ? readUserData(rute, uuid, updateContext) : (setUserSuccess ? setUserSuccess(msg) : '')
     // console.log(result)
     return result
 }

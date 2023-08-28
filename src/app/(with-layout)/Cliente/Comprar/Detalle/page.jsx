@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '@/components/Button';
 import { useUser } from '@/context/Context.js'
 import Subtitle from '@/components/Subtitle'
@@ -12,6 +12,7 @@ import MiniCard from '@/components/MiniCard'
 import Input from '@/components/Input'
 import { useRouter } from 'next/navigation';
 import Confeti from '@/components/Confeti';
+// import { useEffect } from 'react/ts5.0';
 
 function Comprar({ theme, styled, click, children }) {
 
@@ -32,9 +33,15 @@ function Comprar({ theme, styled, click, children }) {
   }
   function seguimiento() {
  
-    router.push('/Cliente/Seguimiento')
+    router.push('/Cliente/Pedidos')
+  }
+  function redirect () {
+    router.push('/Cliente')
   }
 
+  useEffect(() => {
+    window.navigator.vibrate([1000])
+  }, []);
   console.log(cart)
   return (<div className='w-screen p-5'>
     <Confeti />
@@ -95,8 +102,12 @@ function Comprar({ theme, styled, click, children }) {
         </li>
         {Object.values(cart).length > 0 && <span className='text-[12px] pt-[12px]'>En uno momento ellos se comunicaran contigo</span>}
       </ul>
+      <br />
+    <Button theme="Primary" click={redirect}>Volver a la pagina Principal</Button>
     </div>
     <br />
+   
+
 {/* { Object.values(cart).length > 0 && <>
       <Button theme="Success" click={handlerPay}> Pagar por QR</Button>
       <br />

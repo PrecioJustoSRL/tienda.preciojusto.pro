@@ -48,6 +48,7 @@ export function UserProvider({ children }) {
 	const [webScann, setWebScann] = useState(false)
 	const [businessData, setBusinessData] = useState(undefined)
 	const [qrBCP, setQrBCP] = useState(undefined)
+	const [paySuccess, setPaySuccess] = useState(undefined)
 
 
 
@@ -141,7 +142,7 @@ export function UserProvider({ children }) {
 			whatsappMSG,
 			businessData, 
 			webScann, 
-			qrBCP, setQrBCP,
+			qrBCP,paySuccess, setPaySuccess, setQrBCP,
 			setWebScann, 
 			setBusinessData,
 			setWhatsappMSG,
@@ -185,7 +186,8 @@ export function UserProvider({ children }) {
 		sound2, whatsapp,
 		businessData,
 		webScann,
-		qrBCP])
+		qrBCP,
+		paySuccess])
 
 	return (
 		<UserContext.Provider value={value} >

@@ -19,7 +19,7 @@ const InvoicePDF = dynamic(() => import("@/components/ProformaPDF"), {
 
 function Comprar({ theme, styled, click, children }) {
 
-  const { user, userDB, cart, productDB, setUserProduct, setUserItem, setUserData, setUserSuccess, success, state, setState, modal, setModal, qrBCP, setQrBCP } = useUser()
+  const { user, userDB, cart, productDB, setUserProduct, setUserItem, setUserData, setUserSuccess, success, state, setState, modal, setModal, qrBCP, setQrBCP, paySuccess, setPaySuccess } = useUser()
   const [add, setAdd] = useState(false)
   const [showCart, setShowCart] = useState(false)
   const [check, setCheck] = useState(false)
@@ -92,8 +92,31 @@ function Comprar({ theme, styled, click, children }) {
         })
       })
       const data = await res.json()
-      console.log(data.data.qrImage)
       setQrBCP(data.data.qrImage)
+
+      const write = {
+        idBCP: data.data.id, 
+        expiration: data.data.expirationDate, 
+        amount: amount + (check ? 350 : 0), 
+        message: 'Inconcluso'
+      }
+
+      Object.values(cart).map((i) => {
+        const data = { ...i }
+        delete data['created_at']
+        delete data['id']
+        writeUserData('Pedido', { ...data, envio: check, ...state, estado: 'nuevo', cliente: user.uuid, ...write }, null, null, null, null, null, null)
+      })
+
+      // router.push('/Cliente/Comprar/Detalle')
+      // writeUserData('Transacciones', { uuid: data.data.id, expiration: data.data.expirationDate, amount: amount + (check ? 350 : 0), message: 'Inconcluso' }, null, null, null, null, null, null)
+      setTimeout(() => { updateUserData('Pedido', { message: 'Correcto' }, data.data.id, 'idBCP') }, 6000)
+
+
+      const interval = setInterval(() => {
+        readUserData('Pedido', data.data.id, setPaySuccess, 'idBCP' )
+      }, 3000)
+
     } catch (err) {
       console.log(err)
     }
@@ -115,23 +138,20 @@ function Comprar({ theme, styled, click, children }) {
   }
 
 
-  function fetchApiCallback() {
-    fetchData(API, function (error1, data1) {
-
-    })
-  }
 
 
+
+
+  console.log(paySuccess)
 
 
 
 
 
 
-
-
-
-
+  useEffect(() => {
+    paySuccess !== null && paySuccess !== undefined && router.push('/Cliente/Comprar/Detalle')
+  }, [paySuccess]);
 
 
 

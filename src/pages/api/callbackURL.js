@@ -1,6 +1,6 @@
 const { BCPServices } = require('./BCPService.js');
 
-const { writeUserData } = require('./supabase.js');
+const { writeUserData, updateUserData } = require('./supabase.js');
 
 
 const axios = require('axios');
@@ -25,8 +25,8 @@ export default function handler(req, res) {
                 uuid: req.body.Id,
                 amount: req.body.Amount
             }
-            writeUserData('Transacciones', object)
-
+            // writeUserData('Transacciones', object)
+            updateUserData('Transacciones', object, req.body.Id,)
             res.setHeader('Content-Type', 'application/json')
             return res.json(resData)
 

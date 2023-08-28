@@ -9,13 +9,13 @@ import { useRouter } from 'next/navigation';
 
 import { WithAuth } from '@/HOCs/WithAuth'
 import { useEffect, useState } from 'react'
-import { writeUserData, readUserData, updateUserData , deleteUserData, readUserAllData} from '@/supabase/utils'
+import { writeUserData, readUserData, updateUserData, deleteUserData, readUserAllData } from '@/supabase/utils'
 import { uploadStorage } from '@/supabase/storage'
 import { getDayMonthYear } from '@/utils/DateFormat'
 
 
 function Home() {
-    const { user, userDB, distributorPDB, setUserDistributorPDB, pedidos, setUserPedidos,  setUserItem, setUserData, setUserSuccess, } = useUser()
+    const { user, userDB, distributorPDB, setUserDistributorPDB, pedidos, setUserPedidos, setUserItem, setUserData, setUserSuccess, } = useUser()
 
     const router = useRouter()
 
@@ -56,14 +56,14 @@ function Home() {
         setState(obj)
     }
 
-    function delet (i) {
+    function delet(i) {
         deleteUserData('Pedido', i.uuid)
         // postImage[i.uuid] && uploadStorage('Producto', postImage[i.uuid], i.uuid, updateUserData, true)
         // const obj = { ...state }
         // delete obj[i.uuid]
         // setState(obj)
-    }  
-console.log(state)
+    }
+    console.log(state)
     useEffect(() => {
         readUserData('Pedido', user.uuid, pedidos, setUserPedidos, null, null, 'distribuidor', true)
     }, [])
@@ -95,6 +95,12 @@ console.log(state)
                         <th scope="col" class="px-3 py-3">
                             Fecha
                         </th>
+                        <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            Costo
+                        </td>
+                        <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            Debito
+                        </td>
                         <th scope="col" class="px-3 py-3">
                             Eliminar
                         </th>
@@ -125,12 +131,17 @@ console.log(state)
                             <td class="px-3 py-4 h-full font-semibold text-gray-900 dark:text-white">
                                 {getDayMonthYear(i['created_at'])}
                             </td>
-
+                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {i['amount']}
+                            </td>
+                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {i['message'] === 'Correcto' ? 'Sin deuda' : 'Sin cancelar'}
+                            </td>
                             <td class="px-3 py-4">
-                                {state[i.uuid] 
-                                ? <Button theme={"Primary"} click={() => save(i)}>Guardar</Button>
-                                : <Button theme={"Danger"} click={() => delet(i)}>Eliminar</Button>
-                            }
+                                {state[i.uuid]
+                                    ? <Button theme={"Primary"} click={() => save(i)}>Guardar</Button>
+                                    : <Button theme={"Danger"} click={() => delet(i)}>Eliminar</Button>
+                                }
                             </td>
                         </tr>
                     })
