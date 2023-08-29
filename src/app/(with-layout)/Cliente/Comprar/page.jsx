@@ -63,22 +63,22 @@ function Comprar({ theme, styled, click, children }) {
     try {
       console.log('her')
       //**********************BCP*************************
-      // const res = await fetch('https://tienda.preciojusto.pro/api', {
-      //   method: 'POST',
-      //   body: JSON.stringify({ amount: amount + (check ? 350 : 0) }),
-      //   headers: new Headers({
-      //     'Content-Type': 'application/json; charset=UTF-8'
-      //   })
-      // })
-      // const data = await res.json()
-      // setQrBCP(data.data.qrImage)
-      // setQrBCP(46546)
+      const res = await fetch('https://tienda.preciojusto.pro/api', {
+        method: 'POST',
+        body: JSON.stringify({ amount: amount + (check ? 350 : 0) }),
+        headers: new Headers({
+          'Content-Type': 'application/json; charset=UTF-8'
+        })
+      })
+      const data = await res.json()
+      setQrBCP(data.data.qrImage)
+      setQrBCP(46546)
 
       const write = {
-        // idBCP: data.data.id, 
-        // expiration: data.data.expirationDate, 
-        // amount: amount + (check ? 350 : 0), 
-        // message: 'Inconcluso'
+        idBCP: data.data.id, 
+        expiration: data.data.expirationDate, 
+        amount: amount + (check ? 350 : 0), 
+        message: 'Inconcluso'
       }
       const arr = Object.values(cart).map((i) => {
         const data = { ...i }
@@ -92,9 +92,9 @@ function Comprar({ theme, styled, click, children }) {
       // router.push('/Cliente/Comprar/Detalle')
       // setTimeout(() => { updateUserData('Pedido', { message: 'Correcto' }, data.data.id, 'idBCP') }, 6000)
 
-      // const interval = setInterval(() => {
-      //   readUserData('Pedido', data.data.id, setPaySuccess, 'idBCP' )
-      // }, 3000)
+      const interval = setInterval(() => {
+        readUserData('Pedido', data.data.id, setPaySuccess, 'idBCP' )
+      }, 3000)
 
     } catch (err) {
       console.log(err)
