@@ -8,51 +8,68 @@ const axios = require('axios');
 
 export default function handler(req, res) {
 
-    if (req.method === 'POST' && req.headers.authorization === 'Basic UFJFQ0pVU1RPX1VTRVI6NkFFNTJBNUUtM0E3MC00MTQwLTlERUUtRTkxNTU3NTBBNDFG') {
+    if (req.method === 'POST') {
 
+        if (req.headers.authorization === 'Basic UFJFQ0pVU1RPX1VTRVI6NkFFNTJBNUUtM0E3MC00MTQwLTlERUUtRTkxNTU3NTBBNDFG') {
 
-        if (req.body && req.body.Description === 'PROCESADO') {
-            const resData = {
-                State: "000",
-                Message: "Correcto",
-                data: {
-                    id: req.body.Id
+            if (req.body && req.body.Description === 'PROCESADO') {
+                const resData = {
+                    State: "000",
+                    Message: "Correcto",
+                    data: {
+                        id: req.body.Id
+                    }
                 }
+                const object = {
+                    state: "000",
+                    message: "Correcto",
+                    uuid: req.body.Id,
+                    amount: req.body.Amount
+                }
+                // writeUserData('Transacciones', object)
+                updateUserData('Transacciones', object, req.body.Id,)
+                res.setHeader('Content-Type', 'application/json')
+                return res.json(resData)
+
+            } else {
+                const resData = {
+                    State: "017",
+                    Message: "incorrecto",
+                    data: {
+                        id: req.body.Id
+                    }
+                }
+                const object = {
+                    state: "017",
+                    message: "incorrecto",
+                    uuid: req.body.Id,
+
+                }
+                writeUserData('Transacciones', object)
+
+                res.setHeader('Content-Type', 'application/json')
+                return res.json(resData)
+
             }
-            const object = {
-                state: "000",
-                message: "Correcto",
-                uuid: req.body.Id,
-                amount: req.body.Amount
-            }
-            // writeUserData('Transacciones', object)
-            updateUserData('Transacciones', object, req.body.Id,)
-            res.setHeader('Content-Type', 'application/json')
-            return res.json(resData)
 
         } else {
             const resData = {
                 State: "017",
-                Message: "incorrecto",
+                Message: "Error de Autorizacion",
                 data: {
                     id: req.body.Id
                 }
             }
-            const object = {
-                state: "017",
-                message: "incorrecto",
-                uuid: req.body.Id,
-
-            }
-            writeUserData('Transacciones', object)
-
             res.setHeader('Content-Type', 'application/json')
             return res.json(resData)
-
         }
-
-        // console.log(req.body)
     }
+
+}
+
+
+
+
 
 
 
@@ -70,7 +87,7 @@ export default function handler(req, res) {
     // }
 
     // const response = await axios(options);
-    // return response; 
+    // return response;
 
 
     // if (req.method === 'POST') {
@@ -85,7 +102,7 @@ export default function handler(req, res) {
     //         },
     //         url: url,
     //         // httpsAgent: agent,
-    //         data: body,   
+    //         data: body,
     //     }
 
     // res.setHeader('Content-Type', 'application/json')
@@ -93,11 +110,3 @@ export default function handler(req, res) {
 
 
     // }
-
-}
-
-
-
-
-
-
