@@ -30,13 +30,13 @@ export default function Select({arr, name, click, defaultValue, uuid}) {
             // className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
             // dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`} 
             onClick={handlerSelect}>
-                <div className={`p-3 ${state == 'No disponible' &&  'bg-red-400'} ${state == 'Inmediato' &&  'bg-green-400'} ${state == 'En 24 hrs' &&  'bg-yellow-300'}`}>
+                <div className={`p-3 ${state == 'No disponible' &&  'bg-red-400'} ${state == 'Inmediato' &&  'bg-green-400'} ${state == 'En 24 hrs' &&  'bg-yellow-300'} ${state == 'Pendiente' &&  'bg-gray-400'} ${state == 'Felicitaciones' &&  'bg-green-400'} ${state == 'Atendido' &&  'bg-yellow-300'}`}>
                      {state} <span className={select ? 'absolute right-5 rotate-[270deg]' :'absolute right-5 rotate-90'}>{'>'}</span>
             
                 </div>
            <ul 
 
-            className={select ? `p-3 absolute left-0 top-12 bg-gray-50 outline outline-1 outline-gray-300 text-gray-900 text-[14px] rounded-b-xl focus:ring-blue-500 focus:outline-blue-500 w-full p-3 z-30`: 'hidden' } 
+            className={select ? `p-3 absolute left-0 top-12 bg-gray-50 outline outline-1 outline-gray-300 text-gray-900 text-[14px] rounded-b-xl focus:ring-blue-500 focus:outline-blue-500 w-full p-3 z-50`: 'hidden' } 
             // className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
             // dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`} 
             >

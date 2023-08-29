@@ -65,7 +65,7 @@ function Home() {
     }
     console.log(state)
     useEffect(() => {
-        readUserData('Pedido', user.uuid, pedidos, setUserPedidos, null, null, 'distribuidor', true)
+        readUserData('Pedido', user.uuid, setUserPedidos,  'distribuidor')
     }, [])
 
     return (
@@ -116,7 +116,7 @@ function Home() {
                                 {i['nombre del paciente']}
                             </td>
                             <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                {i['nombre de producto 1']}
+                            {JSON.parse(i.compra).map((el, index) => <li key={index}>{el['nombre de producto 1']}{' *('}{el['cantidad']}{')'}</li>)}
                             </td>
                             <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 {i['cantidad']}

@@ -32,43 +32,23 @@ function Comprar({ theme, styled, click, children }) {
     setState({ ...state, [e.target.name]: e.target.value })
   }
 
-
-
-
-
-
-
   function handlerPay(e) {
     e.preventDefault()
     if (state['nombre del paciente'] && state['celular del paciente'] && state['referencia del paciente']) {
       setModal('SuccessFull')
 
       const val = calculator()
-      console.log(val)
-      return val !== 0 && requestQR()
+
+      return val !== 0 && requestQR() 
     } else {
       setUserSuccess('Complete')
     }
-
-    // Object.values(cart).map((i) => {
-    //   const data = { ...i }
-    //   delete data['created_at']
-    //   delete data['id']
-    //   writeUserData('Pedido', { ...data, envio: check, ...state, estado: 'nuevo', cliente: user.uuid }, i.uuid, userDB, setUserData, setUserSuccess, 'existos', null)
-    // })
-    // router.push('/Cliente/Comprar/Detalle')
-
-
-    // window.navigator.vibrate([1000])
   }
 
-  console.log(user)
   function handlerCheck(data) {
     setCheck(data)
     setState({ ...state, check: data })
-
   }
-
 
   function calculator() {
     const val = Object.values(cart).reduce((acc, i, index) => {
@@ -82,76 +62,55 @@ function Comprar({ theme, styled, click, children }) {
     const amount = calculator()
     try {
       console.log('her')
-      const res = await fetch('https://tienda.preciojusto.pro/api', {
-        method: 'POST',
-        body: JSON.stringify({ amount: amount + (check ? 350 : 0) }),
-        headers: new Headers({
-          'Content-Type': 'application/json; charset=UTF-8'
-        })
-      })
-      const data = await res.json()
-      setQrBCP(data.data.qrImage)
+      //**********************BCP*************************
+      // const res = await fetch('https://tienda.preciojusto.pro/api', {
+      //   method: 'POST',
+      //   body: JSON.stringify({ amount: amount + (check ? 350 : 0) }),
+      //   headers: new Headers({
+      //     'Content-Type': 'application/json; charset=UTF-8'
+      //   })
+      // })
+      // const data = await res.json()
+      // setQrBCP(data.data.qrImage)
+      // setQrBCP(46546)
 
       const write = {
-        idBCP: data.data.id, 
-        expiration: data.data.expirationDate, 
-        amount: amount + (check ? 350 : 0), 
-        message: 'Inconcluso'
+        // idBCP: data.data.id, 
+        // expiration: data.data.expirationDate, 
+        // amount: amount + (check ? 350 : 0), 
+        // message: 'Inconcluso'
       }
-
-      Object.values(cart).map((i) => {
+      const arr = Object.values(cart).map((i) => {
         const data = { ...i }
         delete data['created_at']
         delete data['id']
-        writeUserData('Pedido', { ...data, envio: check, ...state, estado: 'nuevo', cliente: user.uuid, ...write }, null, null, null, null, null, null)
+        // writeUserData('Pedido', { ...data, envio: check, ...state, estado: 'nuevo', cliente: user.uuid, ...write }, null, null, null, null, null, null)
+     return data
       })
+      writeUserData('Pedido', { compra: arr, envio: check, ...state, estado: 'Pendiente', cliente: user.uuid, ...write }, null, null, null, null, null, null)
 
       // router.push('/Cliente/Comprar/Detalle')
-      // writeUserData('Transacciones', { uuid: data.data.id, expiration: data.data.expirationDate, amount: amount + (check ? 350 : 0), message: 'Inconcluso' }, null, null, null, null, null, null)
-      setTimeout(() => { updateUserData('Pedido', { message: 'Correcto' }, data.data.id, 'idBCP') }, 6000)
+      // setTimeout(() => { updateUserData('Pedido', { message: 'Correcto' }, data.data.id, 'idBCP') }, 6000)
 
-
-      const interval = setInterval(() => {
-        readUserData('Pedido', data.data.id, setPaySuccess, 'idBCP' )
-      }, 3000)
+      // const interval = setInterval(() => {
+      //   readUserData('Pedido', data.data.id, setPaySuccess, 'idBCP' )
+      // }, 3000)
 
     } catch (err) {
       console.log(err)
     }
-    //     console.log('click')
-    //     fetch('http://localhost:3000/api')
-    //   .then(response => console.log(response))
-    //   .then(data => console.log(data));
   }
-
-  // useEffect(() => {
-  //   const val = calculator()
-  //   console.log(val)
-  //   qrBCP === undefined && val !== 0 && requestQR()
-  // }, [qrBCP])
 
   function closeModal() {
     setModal('')
     setQrBCP(undefined)
   }
 
-
-
-
-
-
-  console.log(paySuccess)
-
-
-
-
-
+  console.log(user)
 
   useEffect(() => {
     paySuccess !== null && paySuccess !== undefined && router.push('/Cliente/Comprar/Detalle')
   }, [paySuccess]);
-
-
 
   console.log(userDB)
   return (<div className='w-full relative p-5 pb-[50px]'>
@@ -204,11 +163,6 @@ function Comprar({ theme, styled, click, children }) {
       }
     </form>
 
-
-
-
-
-
     {modal === 'SuccessFull' && <div className="fixed top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[#000000c2] z-50">
       <div className='relative p-10 bg-white'>
         <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-[14px] w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={closeModal}>
@@ -234,14 +188,6 @@ function Comprar({ theme, styled, click, children }) {
           href={`data:image/png;base64,${qrBCP}`} download>Guardar ImagenQR</a>}
       </div>
     </div>}
-
-
-
-
-
-
-
-
 
     <h3 className='text-center text-[16px] px-5 py-2 bg-[#2A52BE] text-white' >MIS COMPRAS</h3>
 
@@ -284,18 +230,32 @@ function Comprar({ theme, styled, click, children }) {
     <br />
     <br />
 
-
-
-
-
-
   </div>)
 }
 
 export default WithAuth(Comprar)
 
+   // Object.values(cart).map((i) => {
+    //   const data = { ...i }
+    //   delete data['created_at']
+    //   delete data['id']
+    //   writeUserData('Pedido', { ...data, envio: check, ...state, estado: 'nuevo', cliente: user.uuid }, i.uuid, userDB, setUserData, setUserSuccess, 'existos', null)
+    // })
+    // router.push('/Cliente/Comprar/Detalle')
 
 
+    // window.navigator.vibrate([1000])
+
+
+
+
+
+    //     console.log('click')
+    //     fetch('http://localhost:3000/api')
+    //   .then(response => console.log(response))
+    //   .then(data => console.log(data));
+
+      // writeUserData('Transacciones', { uuid: data.data.id, expiration: data.data.expirationDate, amount: amount + (check ? 350 : 0), message: 'Inconcluso' }, null, null, null, null, null, null)
 
 
 // import Page from '@/components/Page'

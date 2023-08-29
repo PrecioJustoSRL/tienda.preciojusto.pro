@@ -108,12 +108,6 @@ function Home() {
 
 
 
-
-
-
-
-
-
     useEffect(() => {
         // readUserAllData('Producto', productDB, setUserProduct)
         console.log(tienda)
@@ -197,10 +191,15 @@ function Home() {
                     JSON.parse(recetaDBP[0].receta).sort(sortArray).map((i, index) =>
                         <div key={index} className='w-full'><div className={`w-full text-[12px] px-5 py-2 rounded-full mr-2 bg-gray-100`} style={{ display: 'grid', gridTemplateColumns: 'auto 30px', }} onClick={() => handlerSearchFilter(i['nombre de producto 3'])}>
                             <div className='pl-5'>{i['nombre de producto 1'] && i['nombre de producto 1']}{' *('}{i['cantidad']}{')'}</div>
-                            {cart && cart[i.uuid] && i['nombre de producto 1'] === cart[i.uuid]['nombre de producto 1'] && i['cantidad'] === cart[i.uuid]['cantidad'] && <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            {cart && cart[i.uuid] && i['nombre de producto 1'] === cart[i.uuid]['nombre de producto 1'] && i['cantidad'] === cart[i.uuid]['cantidad'] 
+                            ? <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="12.5" cy="12.5" r="12.5" fill="#32CD32" />
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4 13.5L6.16667 11.3333L10.5 15.6667L19.1667 7L21.3333 9.16667L10.5 20L4 13.5Z" fill="white" />
-                            </svg>}
+                            </svg>
+                            : <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12.5" cy="12.5" r="12.5" fill="#9ca3af" />
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4 13.5L6.16667 11.3333L10.5 15.6667L19.1667 7L21.3333 9.16667L10.5 20L4 13.5Z" fill="white" />
+                        </svg>}
                         </div>
                             <br />
                         </div>
