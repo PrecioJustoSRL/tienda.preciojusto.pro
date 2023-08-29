@@ -79,9 +79,9 @@ function Home() {
 
     return (
 
-        <div class="relative overflow-x-auto shadow-md ">
-            <table class=" min-w-[1200px] lg:w-full lg:min-w-[1000px] text-[12px] text-left text-gray-500">
-                <thead class="w-full text-[12px] text-gray-700 uppercase bg-gray-50">
+        <div className="relative overflow-x-auto shadow-md ">
+            <table className=" min-w-[1200px] lg:w-full lg:min-w-[1000px] text-[12px] text-left text-gray-500">
+                <thead className="w-full text-[12px] text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col-3" className="px-3 py-3 text-center">
                             #
@@ -115,34 +115,34 @@ function Home() {
                 </thead>
                 <tbody className='w-full'>
                     {pedidos && pedidos !== undefined && pedidos.map((i, index) => {
-                        return <tr class="text-[12px] border-b hover:bg-gray-50" key={index}>
-                            <td class="px-3 py-4  flex font-semibold  text-gray-900  text-center">
+                        return <tr className="text-[12px] border-b hover:bg-gray-50" key={index}>
+                            <td className="px-3 py-4  flex font-semibold  text-gray-900  text-center">
                                 <span className='h-full flex py-2'>{index + 1}</span>
                             </td>
-                            <td class="px-3 py-4 font-semibold  text-gray-900  text-center">
+                            <td className="px-3 py-4 font-semibold  text-gray-900  text-center">
                                 {i['nombre del paciente']}
                             </td>
-                            <td class="px-3 py-4 font-semibold  text-gray-900  text-center">
+                            <td className="px-3 py-4 font-semibold  text-gray-900  text-center">
                                 {JSON.parse(i.compra).map((el, index) => <li key={index}>{el['nombre de producto 1']}{' *('}{el['cantidad']}{')'}</li>)}
                             </td>
-                            <td class="px-3 py-4 font-semibold  text-gray-900  text-center">
+                            <td className="px-3 py-4 font-semibold  text-gray-900  text-center">
                                 {i['check'] == true ? 'Provincia' : 'Ciudad'}
                             </td>
-                            <td class={`px-3 py-4 font-semibold text-gray-900   flex justify-center w-full`}>
+                            <td className={`px-3 py-4 font-semibold text-gray-900   flex justify-center w-full`}>
                                 {/* <Select arr={['Nuevo', 'Atendido', 'Felicitaciones']} name='estado' defaultValue={i.estado} uuid={i.uuid} click={onClickHandlerCategory} /> */}
-                                <span class={`px-3 py-4 font-semibold text-gray-900   rounded-full ${i.estado == 'Pendiente' && 'bg-gray-400'} ${i.estado == 'Felicitaciones' && 'bg-green-400'} ${i.estado == 'Atendido' && 'bg-yellow-300'}`}>{i['estado']}</span>
+                                <span className={`px-3 py-4 font-semibold text-gray-900   rounded-full ${i.estado == 'Pendiente' && 'bg-gray-400'} ${i.estado == 'Felicitaciones' && 'bg-green-400'} ${i.estado == 'Atendido' && 'bg-yellow-300'}`}>{i['estado']}</span>
                             </td>
-                            <td class="px-3 py-4 font-semibold  text-gray-900  text-center">
+                            <td className="px-3 py-4 font-semibold  text-gray-900  text-center">
                                 {calculator(JSON.parse(i.compra)) * 1 + (i['check'] == true ? 350 : 0)}
                             </td>
-                            <td class="px-3 py-4 font-semibold  text-gray-900  text-center">
+                            <td className="px-3 py-4 font-semibold  text-gray-900  text-center">
                                 {i['message'] === 'Correcto' ? 'Sin deuda' : 'Sin cancelar'}
                             </td>
-                            <td class="px-3 py-4 h-full font-semibold  text-gray-900  text-center">
+                            <td className="px-3 py-4 h-full font-semibold  text-gray-900  text-center">
                                 {getDayMonthYear(i['created_at'])}
                             </td>
                             {/* 
-                            <td class="px-3 py-4">
+                            <td className="px-3 py-4">
                                 {state[i.uuid]
                                     ? <Button theme={"Primary"} click={() => save(i)}>Guardar</Button>
                                     : <Button theme={"Danger"} click={() => delet(i)}>Eliminar</Button>

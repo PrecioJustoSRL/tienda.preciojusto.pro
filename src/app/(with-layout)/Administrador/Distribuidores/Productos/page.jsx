@@ -101,7 +101,7 @@ function Home() {
 
     return (
 
-        <div class="relative overflow-x-auto shadow-md p-5 bg-white min-h-[80vh]">
+        <div className="relative overflow-x-auto shadow-md p-5 bg-white min-h-[80vh]">
 
             {modal === 'Delete' && <Modal funcion={deletConfirm}>Estas seguro de ELIMINAR al siguiente usuario {msg}</Modal>}
             {modal === 'Block' && <Modal funcion={blockConfirm}>Estas seguro de BLOQUEAR al siguiente usuario {msg}</Modal>}
@@ -148,52 +148,52 @@ function Home() {
                     <Tag theme={sistema == 'Otros' ? 'Primary' : 'Secondary'} click={() => setSistema(sistema == 'Otros' ? '' : 'Otros')}>Otros</Tag>
                 </div>
             </div>
-            <table class="w-[1900px]  text-[12px] text-left text-gray-500 border-t-4 border-gray-400">
-                <thead class="text-[12px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-[1900px]  text-[12px] text-left text-gray-500 border-t-4 border-gray-400">
+                <thead className="text-[12px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             #
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Nombre 1
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Nombre 2
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Nombre 3
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Descripción basica
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Descripción tecnica
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Usos frecuentes
                         </th>
-                        <th scope="col" class="px-8 py-3">
+                        <th scope="col" className="px-8 py-3">
                             Sistema
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Costo
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Ciudad
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             categoría
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Disponibilidad
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Imagen
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Bloquear
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Eliminar
                         </th>
                     </tr>
@@ -201,60 +201,60 @@ function Home() {
                 <tbody>
                     {distributorPDB && distributorPDB !== undefined && distributorPDB.sort(sortArray).map((i, index) => {
 
-                        return i.disponibilidad.includes(disponibilidad) && i.categoria.includes(categoria) && i.sistema.includes(sistema) && <tr class="bg-white text-[12px] border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={index}>
-                            <td class="px-3 py-4  flex font-semibold text-gray-900 dark:text-white">
+                        return i.disponibilidad.includes(disponibilidad) && i.categoria.includes(categoria) && i.sistema.includes(sistema) && <tr className="bg-white text-[12px] border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={index}>
+                            <td className="px-3 py-4  flex font-semibold text-gray-900 dark:text-white">
                                 <span className='h-full flex py-2'>{index + 1}</span>
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 1' defaultValue={i['nombre de producto 1']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 1' defaultValue={i['nombre de producto 1']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
                                 {i['nombre de producto 1']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 2' defaultValue={i['nombre de producto 2']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 2' defaultValue={i['nombre de producto 2']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
                                 {i['nombre de producto 2']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 3' defaultValue={i['nombre de producto 3']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='nombre de producto 3' defaultValue={i['nombre de producto 3']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
                                 {i['nombre de producto 3']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} name='descripcion basica' defaultValue={i['descripcion basica']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} name='descripcion basica' defaultValue={i['descripcion basica']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
                                 {i['descripcion basica']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} name='descripcion tecnica' defaultValue={i['descripcion tecnica']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} name='descripcion tecnica' defaultValue={i['descripcion tecnica']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
                                 {i['descripcion tecnica']}
                             </td>
-                            <td class="px-3 py-4 h-full font-semibold text-gray-900 dark:text-white">
-                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} name='uso frecuente' defaultValue={i['uso frecuente']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
+                            <td className="px-3 py-4 h-full font-semibold text-gray-900 dark:text-white">
+                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} name='uso frecuente' defaultValue={i['uso frecuente']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
                                 {i['uso frecuente']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 <Select arr={['1.5', ' 2.0', ' 2.4', '2.5', '2.7', '3.5', '4.5', 'Clavos', 'Protesis', 'Costillas', 'Columna y neurocirugia', 'Fijadores externos', 'Otros']} name='sistema' defaultValue={i.sistema} uuid={userUuid} click={onClickHandlerSystem} />
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} name='costo' cols="4" defaultValue={i['costo']} class="block p-1.5 h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} name='costo' cols="4" defaultValue={i['costo']} className="block p-1.5 h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Write your thoughts here..."></textarea> */}
                                 {i['costo']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 {/* <Select arr={['La Paz', 'Cochabamba', 'Santa Cruz']} name='ciudad' defaultValue={i.ciudad} uuid={userUuid} click={onClickHandlerCity} /> */}
                                 {i.ciudad}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 {/* <Select arr={['Titanio', 'Acero Inox', 'Otros']} name='categoria' defaultValue={i.categoria} uuid={userUuid} click={onClickHandlerCategory} /> */}
                                 {i.categoria}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 {/* <Select arr={['Disponible', 'Disponibilidad inmediata', 'No disponible']} name='disponibilidad' defaultValue={i.disponibilidad} uuid={userUuid} click={onClickHandlerAvailability} /> */}
                                 {i.disponibilidad}
                             </td>
-                            <td class="w-32 p-4">
+                            <td className="w-32 p-4">
                                 <img src={urlPostImage[userUuid] ? urlPostImage[userUuid] : i.url} alt="Apple Watch" />
                             </td>
-                            <td class="px-3 py-4">
+                            <td className="px-3 py-4">
                                 <Button theme={"Danger"} click={() => delet(i, 'Block')}>Bloquear</Button>
                             </td>
-                            <td class="px-3 py-4">
+                            <td className="px-3 py-4">
                                 <Button theme={"Danger"} click={() => delet(i, 'Delete')}>Eliminar</Button>
                             </td>
                         </tr>

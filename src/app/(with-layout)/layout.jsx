@@ -22,11 +22,6 @@ function Home({ children }) {
   const { user, userDB, setUserProfile, setUserCart, setUserProduct, setRecetaDB, distributorPDB, setUserDistributorPDB, whatsapp, setWhatsapp, setUserData, filter, setFilter, nav, setNav, modal, setModal, cart, introClientVideo, setIntroClientVideo, recetaDBP, setRecetaDBP, productDB, search, setSearch, videoClientRef, setFilterQR } = useUser()
   const pathname = usePathname()
 
-
-  console.log(pathname)
-
-
-
   const redirectHandler = (ref) => {
     router.push(ref)
   }
@@ -101,7 +96,7 @@ function Home({ children }) {
         Completa tu perfil para hacer tu primera compra
       </Modal>}
       <div className={`fixed top-0 w-[220px] lg:w-[280px]   h-screen bg-[#2A52BE] h-screen transition-all	z-40  ${nav ? 'left-0  ' : 'left-[-220px] lg:left-[-280px] '} z-50`} >
-        <div class="py-4 overflow-y-auto ">
+        <div className="py-4 overflow-y-auto ">
           {user && user !== undefined && <Navbar rol={user.rol} />}
         </div>
       </div>

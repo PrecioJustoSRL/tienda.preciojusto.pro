@@ -69,70 +69,70 @@ function Home() {
 
     return (
 
-        <div class="relative overflow-x-auto shadow-md">
-            <table class=" min-w-[1200px] lg:w-full lg:min-w-[1000px] text-[12px] text-left text-gray-500">
-                <thead class="text-[12px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className="relative overflow-x-auto shadow-md">
+            <table className=" min-w-[1200px] lg:w-full lg:min-w-[1000px] text-[12px] text-left text-gray-500">
+                <thead className="text-[12px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col-3" class="px-3 py-3">
+                        <th scope="col-3" className="px-3 py-3">
                             #
                         </th>
-                        <th scope="col-3" class="px-3 py-3">
+                        <th scope="col-3" className="px-3 py-3">
                             Paciente
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Producto
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Cantidad
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Envio
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Estado
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Fecha
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Verificar
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Eliminar
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     {pedidos && pedidos !== undefined && pedidos.map((i, index) => {
-                        return <tr class="bg-white text-[12px] border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={index}>
-                            <td class="px-3 py-4  flex font-semibold text-gray-900 dark:text-white">
+                        return <tr className="bg-white text-[12px] border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={index}>
+                            <td className="px-3 py-4  flex font-semibold text-gray-900 dark:text-white">
                                 <span className='h-full flex py-2'>{index + 1}</span>
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 {i['nombre del paciente']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 {i['nombre de producto 1']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 {i['cantidad']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 {i['envio'] == true ? 'Yes' : 'Non'}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
                                 <Select arr={['Nuevo', 'Atendido', 'Felicitaciones']} name='estado' defaultValue={i.estado} uuid={i.uuid} click={onClickHandlerCategory} />
                                 {/* {i['costo']} */}
                             </td>
-                            <td class="px-3 py-4 h-full font-semibold text-gray-900 dark:text-white">
+                            <td className="px-3 py-4 h-full font-semibold text-gray-900 dark:text-white">
                                 {getDayMonthYear(i['created_at'])}
                             </td>
 
-                            <td class="px-3 py-4">
+                            <td className="px-3 py-4">
                                 ? <Button theme={"Primary"} click={() => save(i)}>Verificar</Button>
                             
                             </td>
-                            <td class="px-3 py-4">
+                            <td className="px-3 py-4">
                                 {state[i.uuid] 
                                 ? <Button theme={"Primary"} click={() => save(i)}>Guardar</Button>
                                 : <Button theme={"Danger"} click={() => delet(i)}>Eliminar</Button>

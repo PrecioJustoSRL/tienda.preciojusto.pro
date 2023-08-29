@@ -76,8 +76,6 @@ const readUserData = async (rute, uuid, updateContext, eq,) => {
         .select()
         .eq(eq ? eq : 'uuid', uuid)
 
-    console.log(result)
-
     if (updateContext) {
         result.data !== null && result.data.length !== 0
             ? (result.data.lenght > 1 ? updateContext(result.data[0]) : updateContext(result.data))
@@ -95,7 +93,6 @@ const readUserAllData = async (rute, context, updateContext) => {
     const result = await supabase
         .from(rute)
         .select()
-    console.log(result.data)
 
     return updateContext(result.data)
 

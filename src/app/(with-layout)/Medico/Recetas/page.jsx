@@ -58,57 +58,57 @@ function Home() {
 
     return (
 
-        <div class="relative overflow-x-auto shadow-md ">
+        <div className="relative overflow-x-auto shadow-md ">
                         {modal === 'Delete' && <Modal funcion={deletConfirm}>Estas seguro de ELIMINAR al siguiente usuario {msg}</Modal>}
 
-            <table class="w-full min-w-[700px] text-[12px] text-left text-gray-500">
-                <thead class="text-[12px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-full min-w-[700px] text-[12px] text-left text-gray-500">
+                <thead className="text-[12px] text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             #
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Paciente
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Diagnostico
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Hospital
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Receta
                         </th>
-                        <th scope="col" class="px-3 py-3">
+                        <th scope="col" className="px-3 py-3">
                             Edit
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     {recetaDBP && recetaDBP !== undefined && recetaDBP.map((i, index) => {
-                        return <tr class="bg-white text-[12px] border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={index}>
-                            <td class="px-3 py-4  flex font-semibold text-gray-900 dark:text-white">
+                        return <tr className="bg-white text-[12px] border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={index}>
+                            <td className="px-3 py-4  flex font-semibold text-gray-900 dark:text-white">
                                 <span className='h-full flex py-2'>{index + 1}</span>
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='paciente' defaultValue={i['paciente']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aquí..."></textarea> */}
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                {/* <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='paciente' defaultValue={i['paciente']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aquí..."></textarea> */}
                                 {i['paciente']}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='diagnostico' defaultValue={i['diagnostico']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aquí..."></textarea>
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='diagnostico' defaultValue={i['diagnostico']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aquí..."></textarea>
                                 {/* {i['diagnostico']} */}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white">
-                                <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='hospital' defaultValue={i['hospital']} class="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aquí..."></textarea>
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white">
+                                <textarea id="message" rows="6" onChange={(e) => onChangeHandler(e, i)} cols="6" name='hospital' defaultValue={i['hospital']} className="block p-1.5  w-full h-full text-sm text-gray-900 bg-white rounded-lg  focus:ring-gray-100 focus:border-gray-100 focus:outline-none resize-x-none" placeholder="Escribe aquí..."></textarea>
                                 {/* {i['hospital']} */}
                             </td>
-                            <td class="px-3 py-4 font-semibold text-gray-900 dark:text-white ">
+                            <td className="px-3 py-4 font-semibold text-gray-900 dark:text-white ">
                                 {console.log(JSON.parse(i.receta))}
                                 {JSON.parse(i.receta).map((i, index) => 
                                     <li>{i['nombre de producto 1']}{'  (*'}{i['cantidad']}{')'}</li>
                                 )}
                             </td>
-                            <td class="px-3 py-4">
+                            <td className="px-3 py-4">
                                 {state[i.qr] 
                                 ? <Button theme={"Primary"} click={(e) => save(e, i)}>Guardar</Button>
                                 : <Button theme={"Danger"} click={() => delet(i, 'Delete')}>Eliminar</Button>

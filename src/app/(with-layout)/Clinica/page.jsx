@@ -102,7 +102,7 @@ function Home() {
                     <br />
                     <input className="hidden" onChange={manageInputIMG} accept=".jpg, .jpeg, .png, .mp4, webm" id='file' type="file" required />
                 </div>
-                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div className="grid gap-6 mb-6 md:grid-cols-2">
                     {account == 'Verificadora' &&
                         <div>
                             <Label htmlFor="">ID de solicitador</Label>

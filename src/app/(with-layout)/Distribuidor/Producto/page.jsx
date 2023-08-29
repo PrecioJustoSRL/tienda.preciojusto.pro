@@ -29,7 +29,7 @@ function Home() {
                 <Tag styled='tagSecondary'>Otros</Tag>
             </div>
             <br />
-            <div class="w-[70%] max-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
+            <div className="w-[70%] max-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
                 <p className="flex justify-between p-5">
                     <span>Cartera</span><span className="text-red-500">Bs 100</span>
                 </p>

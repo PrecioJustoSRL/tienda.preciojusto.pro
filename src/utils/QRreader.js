@@ -5,7 +5,6 @@ async function QRreaderUtils(e, setFilterQR, setFilter, readUserData, setRecetaD
     const res = await qrcodeParser(e.target.files[0])
     setFilterQR(res);
     const data = await readUserData('Receta', res, setRecetaDBP, 'qr')
-    console.log(data)
     // .then((res) => {
 
     //     });

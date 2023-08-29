@@ -38,28 +38,28 @@ export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, d
     }
     return (
 
-            <div class="relative w-full bg-gray-100 min-h-[180px] max-w-[500px] rounded-[15px] rounded-[20px] rounded-bl-[10px] shadow-sm shadow-[#2A52BE] mt-5 overflow-hidden" onClick={(e) => seeMore(e, i)} style={{ display: 'grid', gridTemplateColumns: 'auto 150px', gridAutoFlow: 'dense' }}>
-            <div class=" font-bold text-[16px] bg-[#32CD32] flex flex-col w-full justify-between items-between text-gray-950 col-span-2 p-5">
-                <div class=" font-bold text-[16px]  text-gray-950">
+            <div className="relative w-full bg-gray-100 min-h-[180px] max-w-[500px] rounded-[15px] rounded-[20px] rounded-bl-[10px] shadow-sm shadow-[#2A52BE] mt-5 overflow-hidden" onClick={(e) => seeMore(e, i)} style={{ display: 'grid', gridTemplateColumns: 'auto 150px', gridAutoFlow: 'dense' }}>
+            <div className=" font-bold text-[16px] bg-[#32CD32] flex flex-col w-full justify-between items-between text-gray-950 col-span-2 p-5">
+                <div className=" font-bold text-[16px]  text-gray-950">
                     {i['nombre de producto 1']}
                 </div>
-                {i['nombre de producto 2'] && <div class=" font-regular text-[14px]  text-gray-950">
+                {i['nombre de producto 2'] && <div className=" font-regular text-[14px]  text-gray-950">
                     {i['nombre de producto 2']}
                 </div>}
-                {i['nombre de producto 2'] && <div class=" font-regular text-[14çpx] text-gray-950">
+                {i['nombre de producto 2'] && <div className=" font-regular text-[14çpx] text-gray-950">
                     {i['nombre de producto 3']}
                 </div>}
             </div>
 
-            <div class=" p-4 pt-4  flex flex-col justify-start leading-normal">
+            <div className=" p-4 pt-4  flex flex-col justify-start leading-normal">
 
-                {i.categoria !== 'Otros' && <p class="text-gray-700 text-[16px] pb-[10px] font-bold">{i.categoria}</p>}
-                <div class="">
-                    <p class="text-gray-700 text-[12px]">{i['descripcion basica']}</p>
+                {i.categoria !== 'Otros' && <p className="text-gray-700 text-[16px] pb-[10px] font-bold">{i.categoria}</p>}
+                <div className="">
+                    <p className="text-gray-700 text-[12px]">{i['descripcion basica']}</p>
                 </div>
             </div>
             <div>
-                <div class="relative w-[150px] rounded-t text-center" >
+                <div className="relative w-[150px] rounded-t text-center" >
                     <img src={i.url} className='w-150px' alt="" />
                     {recetado === true && <span className='absolute text-[16px] font-bold right-10 top-10 text-green-600 transform rotate-[-45deg]'>Recomendado <br /> por tu doctor</span>}
                 </div>
@@ -70,9 +70,9 @@ export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, d
                 </div>
             </div>
             <div className='w-full flex justify-between  items-center p-4'>
-                <div class="flex items-baseline text-gray-900">
-                    <span class="text-[14px] text-gray-600 font-semibold">BOB</span>
-                    <span class="text-[18px]  text-gray-600 font-extrabold tracking-tight">{i.costo}</span>
+                <div className="flex items-baseline text-gray-900">
+                    <span className="text-[14px] text-gray-600 font-semibold">BOB</span>
+                    <span className="text-[18px]  text-gray-600 font-extrabold tracking-tight">{i.costo}</span>
                 </div>
             </div>
             <div className='flex py-4 pr-4'>

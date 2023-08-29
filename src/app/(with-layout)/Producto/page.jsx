@@ -62,21 +62,21 @@ function Home() {
             <div className='flex flex-wrap justify-center lg:justify-start md:max-w-[400px] '>
                 <img src={item.url} className='lg:w-[90vw] lg:max-w-[400px] max-h-[200px] lg:max-h-[10000px] lg:px-10' alt="" />
                 <div className='w-full flex justify-end  items-center p-5 lg:px-10'>
-                    <div class="flex items-baseline text-gray-900">
-                        <span class="text-[16px] text-gray-600 font-semibold">BOB</span>
-                        <span class="text-[30px]  text-gray-600 font-extrabold tracking-tight">{item.costo}</span>
+                    <div className="flex items-baseline text-gray-900">
+                        <span className="text-[16px] text-gray-600 font-semibold">BOB</span>
+                        <span className="text-[30px]  text-gray-600 font-extrabold tracking-tight">{item.costo}</span>
                     </div>
                 </div>
             </div>
             <br />
             <div className='lg:pl-12 lg:border-l bg-gray-50 p-5 lg:bg-white lg:p-0'>
-                <div class=" font-bold text-[16px] mb-2 text-gray-950">
+                <div className=" font-bold text-[16px] mb-2 text-gray-950">
                     {item['nombre de producto 1']}
                 </div>
-                <div class=" font-bold text-[16px] mb-2 text-gray-950">
+                <div className=" font-bold text-[16px] mb-2 text-gray-950">
                     {item['nombre de producto 2']}
                 </div>
-                <div class=" font-bold text-[16px] mb-2 text-gray-950">
+                <div className=" font-bold text-[16px] mb-2 text-gray-950">
                     {item['nombre de producto 3']}
                 </div>
                 <Subtitle>Descripción basica</Subtitle>

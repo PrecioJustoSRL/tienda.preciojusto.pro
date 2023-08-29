@@ -165,11 +165,11 @@ function Comprar({ theme, styled, click, children }) {
 
     {modal === 'SuccessFull' && <div className="fixed top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[#000000c2] z-50">
       <div className='relative p-10 bg-white'>
-        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-[14px] w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={closeModal}>
-          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+        <button type="button" className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-[14px] w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={closeModal}>
+          <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
           </svg>
-          <span class="sr-only">Close modal</span>
+          <span className="sr-only">Close modal</span>
         </button>
         <br />
         Paga por QR y adquiere tus productos
@@ -193,16 +193,16 @@ function Comprar({ theme, styled, click, children }) {
 
     <div className='relative overflow-x-auto items-center justify-between w-full max-w-screen bg-transparent md:w-auto lg:max-w-auto transition-all	z-0' >
 
-      <table class="w-full lg:min-w-[800px] border-[1px] border-gray-200 lg:w-full lg:min-w-auto text-[12px] text-left text-gray-500">
-        {Object.values(cart).length > 0 && <thead class="text-[12px] text-gray-700 uppercase bg-gray-50">
+      <table className="w-full lg:min-w-[800px] border-[1px] border-gray-200 lg:w-full lg:min-w-auto text-[12px] text-left text-gray-500">
+        {Object.values(cart).length > 0 && <thead className="text-[12px] text-gray-700 uppercase bg-gray-50">
           <tr>
-            <th scope="col-3" class="w-1/2 px-2 py-3">
+            <th scope="col-3" className="w-1/2 px-2 py-3">
               Producto
             </th>
-            <th scope="col" class="px-0 py-3 text-center">
+            <th scope="col" className="px-0 py-3 text-center">
               Cantidad
             </th>
-            <th scope="col" class="px-2 w-[200px] py-3">
+            <th scope="col" className="px-2 w-[200px] py-3">
               Costo total
             </th>
           </tr>
@@ -211,12 +211,12 @@ function Comprar({ theme, styled, click, children }) {
         {Object.values(cart).length > 0 ? Object.values(cart).map((i, index) => <MiniCard i={i} />) : <span className='block text-[16px] text-center'>No tienes productos <br /> selecciona alguno <br /> </span>}
 
         {Object.values(cart).length > 0 && <tbody>
-          <tr class="bg-white text-[12px] border-b">
-            <td class="px-2 py-4  flex text-[16px] text-gray-700 font-extrabold text-gray-900">
+          <tr className="bg-white text-[12px] border-b">
+            <td className="px-2 py-4  flex text-[16px] text-gray-700 font-extrabold text-gray-900">
               TOTAL:
             </td>
             <td>{check && '+350 Bs *Para provincia'}</td>
-            <td class="px-2 py-4 font-extrabold  text-[16px] text-gray-700">
+            <td className="px-2 py-4 font-extrabold  text-[16px] text-gray-700">
               {Object.values(cart).reduce((acc, i, index) => {
                 const sum = i['costo'] * i['cantidad']
                 return sum + acc

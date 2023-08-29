@@ -67,25 +67,25 @@ function Comprar({ theme, styled, click, children }) {
       <ul className="flex flex-col bg-gray-100 p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg   ">
         <h3 className='text-center text-[16px] pb-3'>DETALLES DE LA COMPRA</h3>
         <li>{Object.values(cart).length > 0 ? Object.values(cart).map((i, index) => {
-          return <div class="relative w-full max-w-[500px] py-4" onClick={(e) => seeMore(e, i)} style={{ display: 'grid', gridTemplateColumns: 'auto 80px' }}>
-            <div class=" flex  flex-col justify-between ">
-              <div class=" font-bold text-[12px]  text-gray-950">
+          return <div className="relative w-full max-w-[500px] py-4" onClick={(e) => seeMore(e, i)} style={{ display: 'grid', gridTemplateColumns: 'auto 80px' }}>
+            <div className=" flex  flex-col justify-between ">
+              <div className=" font-bold text-[12px]  text-gray-950">
                 Nombre de producto: {i['nombre de producto 1']}
               </div>
 
-              <div class=" font-bold text-[12px]  text-gray-950">
+              <div className=" font-bold text-[12px]  text-gray-950">
                 Cantidad: {i['cantidad']}u
               </div>
-              <div class=" font-bold text-[12px]  text-gray-950">
+              <div className=" font-bold text-[12px]  text-gray-950">
                 Costo Total: {i['costo'] * i['cantidad']}bs
               </div>
-              <div class=" font-bold text-[12px]  text-gray-950">
+              <div className=" font-bold text-[12px]  text-gray-950">
                 Empresa: {i['empresa']}
               </div>
-              <div class=" font-bold text-[12px]  text-gray-950">
+              <div className=" font-bold text-[12px]  text-gray-950">
                 Telefono: {i['telefono']}
               </div>
-              <div class=" font-bold text-[12px]  text-gray-950">
+              <div className=" font-bold text-[12px]  text-gray-950">
                 Celular: {i['whatsapp']}
               </div>
             </div>

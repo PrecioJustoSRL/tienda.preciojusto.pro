@@ -78,7 +78,7 @@ function Home() {
                 </div>
                 <br />
                 <br />
-                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div className="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <Label htmlFor="">Nombre</Label>
                         <Input type="text" name="nombre" onChange={onChangeHandler} defValue={userDB && userDB[0]['nombre']} require />
