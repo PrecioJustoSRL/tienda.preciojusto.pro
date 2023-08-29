@@ -120,8 +120,8 @@ function Home() {
 
     }, [user, filterQR]);
 
-    console.log(recetaDBP)
-
+    console.log(recetaDBP && JSON.parse(recetaDBP[0].receta).map((i) => i.uuid))
+    // recetaDBP && JSON.parse(recetaDBP[0].receta).map((el)=>el.uuid).includes(i.uuid) 
     return (
 
         <main className="">
@@ -249,12 +249,12 @@ function Home() {
 
                 <div className="relative bg-transparent lg:bg-transparent mt-6  rounded-t-[50px]  w-full flex flex-col items-center justify-center px-5 pt-8 pb-16 lg:pt-0">
 
-                    {filterQR.length > 0 && recetaDBP !== null && recetaDBP !== undefined &&
+                    {/* {filterQR.length > 0 && recetaDBP !== null && recetaDBP !== undefined &&
                         JSON.parse(recetaDBP[0].receta).sort(sortArray).map((i, index) =>
                             tienda === 'Recetar'
                                 ? i.disponibilidad !== 'No disponible' && i['nombre de producto 1'] === filter && <CardM i={i} key={index} />
                                 : i.disponibilidad !== 'No disponible' && i['nombre de producto 1'] === filter && <Card i={i} recetado={true} key={index} />
-                       )}
+                       )} */}
 
                     {filter.length == 0 && filterQR.length == 0 &&
                         productDB !== null && productDB !== undefined &&
@@ -275,7 +275,9 @@ function Home() {
                                 : (i['nombre de producto 1'].toLowerCase().includes(filter.toLowerCase()) ||
                                     (i['nombre de producto 2'] && i['nombre de producto 2'].toLowerCase().includes(filter.toLowerCase())) ||
                                     (i['nombre de producto 3'] && i['nombre de producto 3'].toLowerCase().includes(filter.toLowerCase()))) && i.disponibilidad !== 'No disponible' &&
-                                <Card i={i} key={index} />
+                            <Card i={i} recetado={recetaDBP && JSON.parse(recetaDBP[0].receta).map((el) => el.uuid).includes(i.uuid)} detalle={recetaDBP && JSON.parse(recetaDBP[0].receta).find((el) => el.uuid === i.uuid)} key={index} />
+                                // console.log(recetaDBP && JSON.parse(recetaDBP[0].receta).find((el) => el.uuid === i.uuid))
+
                         }
                         )}
                 </div>
@@ -295,7 +297,6 @@ function Home() {
                         </div>)
                 }
             </div>}
-            {/* Whatsapp */}
         </main>
     )
 }

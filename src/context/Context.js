@@ -85,7 +85,7 @@ export function UserProvider({ children }) {
 		// }
 		const interval = setInterval(() => {
 			console.log('int')
-			if (videoRef.current.ended) {
+			if (videoRef && videoRef.current && videoRef.current.ended) {
 				setUserIntroVideo(false)
 				clearInterval(interval)
 			}

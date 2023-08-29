@@ -6,7 +6,7 @@ import { useUser } from '@/context/Context.js'
 import { useRouter } from 'next/navigation';
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
-export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, descripcion, i, recetado }) {
+export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, descripcion, i, recetado, detalle}) {
 
     const { user, userDB, distributorPDB, setUserDistributorPDB, setUserItem, item, setUserData, setUserSuccess, cart, setUserCart, modal, setModal } = useUser()
     const router = useRouter()
@@ -25,7 +25,7 @@ export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, d
         }
         user && user.rol !== 'Cliente' && (userDB == null || userDB == undefined)
             ? setModal('Verifica')
-            : setUserCart({ ...cart, [i.uuid]: { ...i, cantidad: 1 } })
+            : setUserCart({ ...cart, [i.uuid]: { ...i, cantidad: detalle !== undefined ? detalle.cantidad : 1 } })
     }
 
     const addPlussCart = (e) => {
@@ -39,12 +39,13 @@ export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, d
         e.stopPropagation()
         const obj = { ...cart }
         delete obj[i.uuid]
-        console.log(obj)
 
         cart[i.uuid].cantidad - 1 == 0
             ? setUserCart(obj)
             : setUserCart({ ...cart, [i.uuid]: { ...i, cantidad: cart[i.uuid].cantidad - 1 } })
     }
+
+    console.log(detalle)
     return (
         <div className="relative w-full bg-gray-100 min-h-[180px] max-w-[500px] rounded-[15px] rounded-[20px] rounded-bl-[10px] shadow-sm shadow-[#2A52BE] mt-5 overflow-hidden" onClick={(e) => seeMore(e, i)} style={{ display: 'grid', gridTemplateColumns: 'auto 150px', gridAutoFlow: 'dense' }}>
             <div className=" font-bold text-[16px] bg-[#2A52BE] flex flex-col w-full justify-between items-between text-gray-950 col-span-2 p-5">
