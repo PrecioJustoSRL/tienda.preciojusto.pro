@@ -183,7 +183,6 @@ export default function BottomNavigation({ rol }) {
         case 'Cliente':
             return <ul className="space-y-3 text-[16px]  text-gray-600 font-medium">
                 <Header />
-                <Profile />
                 <Store />
                 <Order />
                 <Support />
