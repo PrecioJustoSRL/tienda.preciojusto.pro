@@ -64,10 +64,10 @@ function Home() {
 
         const data = await readUserData('Producto', queryUuid, null, 'distribuidor')
 
-        if (data.length === 0) {
-            setModal('No Data')
-            return
-        }
+        // if (data.length === 0) {
+        //     setModal('No Data')
+        //     return
+        // }
 
         if (distributorPDB !== null && distributorPDB !== undefined) {
             setModal(e)
@@ -93,12 +93,16 @@ function Home() {
         setState({ ...state, [i.uuid]: { ...state[i.uuid], uuid: i.uuid, [e.target.name]: e.target.value } })
     }
     async function save(i) {
+        console.log(state)
+        setModal('Guardando')
         await updateUserData('Producto', state[i.uuid], i.uuid)
         postImage[i.uuid] && await uploadStorage('Producto', postImage[i.uuid], i.uuid, updateUserData, true)
         const obj = { ...state }
         delete obj[i.uuid]
         setState(obj)
-        readUserData('Producto', user.uuid, setUserDistributorPDB, 'distribuidor')
+        await readUserData('Producto', user.uuid, setUserDistributorPDB, 'distribuidor')
+        setModal('')
+
     }
     async function deletConfirm() {
         await updateUserData('Producto', { ...state[item.uuid], archivado: true }, item.uuid)
@@ -123,7 +127,6 @@ function Home() {
         if (x['nombre de producto 1'].toLowerCase() > y['nombre de producto 1'].toLowerCase()) { return 1 }
         return 0
     }
-    console.log(state)
     useEffect(() => {
         readUserData('Producto', user.uuid, setUserDistributorPDB, 'distribuidor')
     }, [])
@@ -297,7 +300,7 @@ function Home() {
                     <div className='flex justify-center items-center bg-[#0064FA] h-[50px] w-[50px]  rounded-full text-white cursor-pointer' onClick={redirect}> <span className='text-white text-[30px]'>+</span> </div>
                 </div> */}
 
-                {success == 'Actualizando' && <LoaderBlack />}
+                {modal === 'Guardando' && <LoaderBlack />}
 
             </div>
         </div>

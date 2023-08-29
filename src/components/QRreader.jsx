@@ -1,8 +1,4 @@
-// 'use client'
 
-// import "./qr.css";
-// import { useState } from "react";
-// import QrReader from "react-qr-reader";
 
 'use client'
 
@@ -33,7 +29,7 @@ const Test = () => {
   };
   return (
     <div className="h-[200px]">
-      <h1>Hello CodeSandbox</h1>
+      {/* <h1>Hello CodeSandbox</h1>
       <h2>
         Last Scan:
         {selected}
@@ -66,7 +62,7 @@ const Test = () => {
         </>
       )}
       {loadingScan && <p>Loading</p>}
-      {data !== "" && <p>{data}</p>}
+      {data !== "" && <p>{data}</p>} */}
     </div>
   );
 };

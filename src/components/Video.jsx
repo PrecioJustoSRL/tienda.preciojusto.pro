@@ -59,9 +59,9 @@ export default function Button({ theme, click, children }) {
             : <span className='relative flex  items-center justify-center z-50 bg-gray-800 w-[50px] text-[white] border-[2px] border-gray-50  text-center text-[16px] py-3 rounded-full' onClick={handlerRepeat}>
               <svg width="25" height="25" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_512_475" style={{maskType:'luminance'}} maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
-                  <path d="M17 20V14L22 17L27 20L22 23L17 26V20Z" fill="white" stroke="white" stroke-width="4" stroke-linejoin="round" />
-                  <path d="M7.272 32.728C8.9416 34.402 10.9256 35.7295 13.1099 36.6342C15.2942 37.539 17.6357 38.0031 20 38C29.941 38 38 29.941 38 20C38 10.059 29.941 2 20 2C15.03 2 10.53 4.015 7.272 7.272C5.614 8.93 2 13 2 13" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M2 5V13H10" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M17 20V14L22 17L27 20L22 23L17 26V20Z" fill="white" stroke="white" strokeWidth="4" strokeLinejoin="round" />
+                  <path d="M7.272 32.728C8.9416 34.402 10.9256 35.7295 13.1099 36.6342C15.2942 37.539 17.6357 38.0031 20 38C29.941 38 38 29.941 38 20C38 10.059 29.941 2 20 2C15.03 2 10.53 4.015 7.272 7.272C5.614 8.93 2 13 2 13" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M2 5V13H10" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
                 </mask>
                 <g mask="url(#mask0_512_475)">
                   <path d="M-4 -4H44V44H-4V-4Z" fill="white" />
@@ -88,38 +88,6 @@ export default function Button({ theme, click, children }) {
     </div>
   )
 }
-
-
-
-
-
-  //  {play
-  //   ? <span className='flex items-center justify-center z-50 bg-[#ffffff70] w-[50px] h-[50px] text-[white]  text-center text-[16px] py-3 rounded-full' onClick={handlePause}>
-
-  //   <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-  //     <path d="M2.92996 17.0698C1.97486 16.1474 1.21303 15.0439 0.688943 13.8239C0.164853 12.6038 -0.111009 11.2916 -0.122547 9.96385C-0.134085 8.63605 0.118932 7.31926 0.62174 6.09029C1.12455 4.86133 1.86708 3.74481 2.80601 2.80589C3.74493 1.86696 4.86145 1.12443 6.09042 0.621618C7.31938 0.11881 8.63618 -0.134207 9.96397 -0.122669C11.2918 -0.111131 12.604 0.164731 13.824 0.688821C15.044 1.21291 16.1475 1.97473 17.07 2.92984C18.8915 4.81586 19.8995 7.34188 19.8767 9.96385C19.8539 12.5858 18.8022 15.0939 16.9481 16.948C15.0941 18.8021 12.5859 19.8538 9.96397 19.8766C7.342 19.8994 4.81598 18.8914 2.92996 17.0698ZM15.66 15.6598C17.1611 14.1587 18.0044 12.1227 18.0044 9.99984C18.0044 7.87692 17.1611 5.84096 15.66 4.33984C14.1588 2.83871 12.1229 1.99539 9.99996 1.99539C7.87705 1.99539 5.84108 2.83871 4.33996 4.33984C2.83883 5.84096 1.99551 7.87692 1.99551 9.99984C1.99551 12.1227 2.83883 14.1587 4.33996 15.6598C5.84108 17.161 7.87705 18.0043 9.99996 18.0043C12.1229 18.0043 14.1588 17.161 15.66 15.6598ZM6.99996 5.99984H8.99996V13.9998H6.99996V5.99984ZM11 5.99984H13V13.9998H11V5.99984Z" fill="white" />
-  //   </svg>
-  // </span>
-  // : <span className='flex items-center justify-center z-50 bg-[#ffffff70] w-[50px] h-[50px] text-[white]  text-center text-[16px] py-3 rounded-full' onClick={handlePlay}>
-  //   <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-  //     <path d="M2.92996 17.0698C1.97486 16.1474 1.21303 15.0439 0.688943 13.8239C0.164853 12.6038 -0.111009 11.2916 -0.122547 9.96385C-0.134085 8.63605 0.118932 7.31926 0.62174 6.09029C1.12455 4.86133 1.86708 3.74481 2.80601 2.80589C3.74493 1.86696 4.86145 1.12443 6.09042 0.621618C7.31938 0.11881 8.63618 -0.134207 9.96397 -0.122669C11.2918 -0.111131 12.604 0.164731 13.824 0.688821C15.044 1.21291 16.1475 1.97473 17.07 2.92984C18.8915 4.81586 19.8995 7.34188 19.8767 9.96385C19.8539 12.5858 18.8022 15.0939 16.9481 16.948C15.0941 18.8021 12.5859 19.8538 9.96397 19.8766C7.342 19.8994 4.81598 18.8914 2.92996 17.0698ZM15.66 15.6598C17.1611 14.1587 18.0044 12.1227 18.0044 9.99984C18.0044 7.87692 17.1611 5.84096 15.66 4.33984C14.1588 2.83871 12.1229 1.99539 9.99996 1.99539C7.87705 1.99539 5.84108 2.83871 4.33996 4.33984C2.83883 5.84096 1.99551 7.87692 1.99551 9.99984C1.99551 12.1227 2.83883 14.1587 4.33996 15.6598C5.84108 17.161 7.87705 18.0043 9.99996 18.0043C12.1229 18.0043 14.1588 17.161 15.66 15.6598ZM6.99996 5.99984L15 9.99984L6.99996 13.9998V5.99984Z" fill="white" />
-  //   </svg>
-  // </span>} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

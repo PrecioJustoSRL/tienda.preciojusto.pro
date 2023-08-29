@@ -4,7 +4,6 @@ import { supabase } from './config'
 
 const onAuth = (setUserProfile) => {
     supabase.auth.onAuthStateChange(async (event, session) => {
-        console.log(session)
         if (session) {
             const { data } = await supabase
                 .from('Users')
