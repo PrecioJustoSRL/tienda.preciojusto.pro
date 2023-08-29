@@ -8,7 +8,7 @@ import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, descripcion, i, recetado, detalle}) {
 
-    const { user, userDB, distributorPDB, setUserDistributorPDB, setUserItem, item, setUserData, setUserSuccess, cart, setUserCart, modal, setModal } = useUser()
+    const { user, userDB, distributorPDB, setUserDistributorPDB, setUserItem, item, setUserData, setUserSuccess, cart, setUserCart, modal, setModal, setFilter } = useUser()
     const router = useRouter()
     // console.log(userDB)
     function seeMore(e) {
@@ -26,6 +26,10 @@ export default function Card({ nombre1, nombre2, nombre3, costo, url, empresa, d
         user && user.rol !== 'Cliente' && (userDB == null || userDB == undefined)
             ? setModal('Verifica')
             : setUserCart({ ...cart, [i.uuid]: { ...i, cantidad: detalle !== undefined ? detalle.cantidad : 1 } })
+
+          if (  detalle !== undefined  ) {
+            setFilter('')
+          }
     }
 
     const addPlussCart = (e) => {

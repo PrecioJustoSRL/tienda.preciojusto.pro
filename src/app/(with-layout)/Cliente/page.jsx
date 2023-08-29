@@ -82,8 +82,9 @@ function Home() {
         setWebScann(!webScann)
     }
     function searchQR(data) {
-        console.log(data)
-        setFilter(data)
+        filter === data 
+        ? setFilter('')
+        : setFilter(data)
         // setSearch(false)
     }
 
@@ -209,6 +210,25 @@ function Home() {
                                 </svg>}
                         </div>
                             <br />
+
+                            <div className={` w-full flex flex-col items-center justify-center transition-all ${filter === i['nombre de producto 1'] ? '' : 'h-0 overflow-hidden'} col-span-2`}>
+                                {filter.length > 0 && productDB !== null && productDB !== undefined &&
+                                    productDB.sort(sortArray).map((i, index) => {
+                                        if (i.distribuidor !== 'Precio-Justo-SRL-Data') return tienda === 'Recetar' && i.distribuidor !== 'Precio-Justo-SRL-Data'
+                                            ? (i['nombre de producto 1'].toLowerCase().includes(filter.toLowerCase()) ||
+                                                (i['nombre de producto 2'] && i['nombre de producto 2'].toLowerCase().includes(filter.toLowerCase())) ||
+                                                (i['nombre de producto 3'] && i['nombre de producto 3'].toLowerCase().includes(filter.toLowerCase()))) && i.disponibilidad !== 'No disponible' &&
+                                            <CardM i={i} key={index} />
+                                            : (i['nombre de producto 1'].toLowerCase().includes(filter.toLowerCase()) ||
+                                                (i['nombre de producto 2'] && i['nombre de producto 2'].toLowerCase().includes(filter.toLowerCase())) ||
+                                                (i['nombre de producto 3'] && i['nombre de producto 3'].toLowerCase().includes(filter.toLowerCase()))) && i.disponibilidad !== 'No disponible' &&
+                                            <Card i={i} recetado={recetaDBP && JSON.parse(recetaDBP[0].receta).map((el) => el.uuid).includes(i.uuid)} detalle={recetaDBP && JSON.parse(recetaDBP[0].receta).find((el) => el.uuid === i.uuid)} key={index} />
+                                        // console.log(recetaDBP && JSON.parse(recetaDBP[0].receta).find((el) => el.uuid === i.uuid))
+                                    }
+                                    )}
+                            </div>
+                            <br />
+
                         </div>
                     )}
                 <br />
@@ -221,7 +241,6 @@ function Home() {
                             <path fill-rule="evenodd" clipRule="evenodd" d="M4 13.5L6.16667 11.3333L10.5 15.6667L19.1667 7L21.3333 9.16667L10.5 20L4 13.5Z" fill="white" />
                         </svg>
                     </span>  antes de Ir a pagar.
-                    {/* ¡Hola! Tienes algunas compras pendientes, recomendados por su medico  ¡Gracias po elegirnos!<br />  */}
                 </div>
             </div>}
 
@@ -265,21 +284,7 @@ function Home() {
                         }
                         )}
 
-                    {filter.length > 0 && productDB !== null && productDB !== undefined &&
-                        productDB.sort(sortArray).map((i, index) => {
-                            if (i.distribuidor !== 'Precio-Justo-SRL-Data') return tienda === 'Recetar' && i.distribuidor !== 'Precio-Justo-SRL-Data'
-                                ? (i['nombre de producto 1'].toLowerCase().includes(filter.toLowerCase()) ||
-                                    (i['nombre de producto 2'] && i['nombre de producto 2'].toLowerCase().includes(filter.toLowerCase())) ||
-                                    (i['nombre de producto 3'] && i['nombre de producto 3'].toLowerCase().includes(filter.toLowerCase()))) && i.disponibilidad !== 'No disponible' &&
-                                <CardM i={i} key={index} />
-                                : (i['nombre de producto 1'].toLowerCase().includes(filter.toLowerCase()) ||
-                                    (i['nombre de producto 2'] && i['nombre de producto 2'].toLowerCase().includes(filter.toLowerCase())) ||
-                                    (i['nombre de producto 3'] && i['nombre de producto 3'].toLowerCase().includes(filter.toLowerCase()))) && i.disponibilidad !== 'No disponible' &&
-                            <Card i={i} recetado={recetaDBP && JSON.parse(recetaDBP[0].receta).map((el) => el.uuid).includes(i.uuid)} detalle={recetaDBP && JSON.parse(recetaDBP[0].receta).find((el) => el.uuid === i.uuid)} key={index} />
-                                // console.log(recetaDBP && JSON.parse(recetaDBP[0].receta).find((el) => el.uuid === i.uuid))
 
-                        }
-                        )}
                 </div>
             </div>
 
