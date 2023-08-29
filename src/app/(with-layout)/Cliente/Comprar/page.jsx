@@ -100,7 +100,7 @@ function Comprar({ theme, styled, click, children }) {
       console.log(err)
     }
   }
-
+             
   function closeModal() {
     setModal('')
     setQrBCP(undefined)
