@@ -83,7 +83,7 @@ function Comprar({ theme, styled, click, children }) {
       const arr = Object.values(cart).map((i) => {
         const data = { ...i }
         delete data['created_at']
-        delete data['id']
+        delete data['id']                          
         // writeUserData('Pedido', { ...data, envio: check, ...state, estado: 'nuevo', cliente: user.uuid, ...write }, null, null, null, null, null, null)
      return data
       })
